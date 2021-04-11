@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--注册页面-->
+<!--action="" 表示要访问的servlet的url-pattern地址-->
+<form action="demo2" method="get">
+    用户名： <input type="text" name="username" placeholder="请输入用户名"/>
+    <br>
+    密码： <input type="password" name="pwd" placeholder="请输入密码"/>
+    <br>
+    昵称： <input type="text" name="nickname" placeholder="请输入哈哈哈昵称">
+    <br>
+    兴趣爱好：
+
+    读书<input type="checkbox" name="love" value="book">
+    上网 <input type="checkbox" name="love" value="online">
+    打球 <input type="checkbox" name="love" value=playball">
+    睡觉 <input type="checkbox" name="love" value="sleep">
+    <input type="submit" name="btn" value="提交">
+
+</form>
+<hr>
+<!--href=""写的是一个servlet的url-pattern地址-->
+<a href="registe"> 点我去ResistServlet</a>
+</body>
+</html>

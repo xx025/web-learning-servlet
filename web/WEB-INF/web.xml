@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--在web.xml的根目录下配置初始化参数
+    该参数被整个web应用共享，可以使用ServletContext来获取
+    -->
+
+
+    <!--配置或设置Session的存活时间-->
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+
+    <context-param>
+        <param-name>data1</param-name>
+        <param-value>value1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>data2</param-name>
+        <param-value>value2</param-value>
+    </context-param>
+
+    <!--配置HelloServlet-->
+    <servlet>
+        <!--对要配置的servlet起名字-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--要配置的servlet的包名+类名-->
+        <servlet-class>com.lddx.test.HelloServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RequestDemo2</servlet-name>
+        <servlet-class>com.lddx.request.RequestDemo2</servlet-class>
+    </servlet>
+    <!--配置DefaultServlet-->
+    <servlet>
+        <servlet-name>DefaultServlet</servlet-name>
+        <servlet-class>com.lddx.test.DefaultServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RegisteServlet</servlet-name>
+        <servlet-class>com.lddx.test.RegistServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RequestDemo1</servlet-name>
+        <servlet-class>com.lddx.request.RequestDemo1</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <!--和上面的servlet-name保证一致-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--浏览器访问的url地址，以/开始定义地址-->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <!--和上面的servlet-name保证一致-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--浏览器访问的url地址，以/开始定义地址-->
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+    <!--使用*.do的配置-->
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <!--使用/+内容+/*的配置-->
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/test/test1/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>DefaultServlet</servlet-name>
+        <!--缺省servlet是/，为了避免-->
+        <url-pattern>/default</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>RegisteServlet</servlet-name>
+        <url-pattern>/registe</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestDemo1</servlet-name>
+        <url-pattern>/demo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestDemo2</servlet-name>
+        <url-pattern>/demo2</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ServletConfigDemo1</servlet-name>
+        <servlet-class>com.lddx.servletconfig.ServletConfigDemo1</servlet-class>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>www.baidu.com</param-value>
+        </init-param>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root</param-value>
+        </init-param>
+
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>ServletConfigDemo1</servlet-name>
+        <url-pattern>/config1</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
